@@ -1,0 +1,12 @@
+@import '~@/lib/reset.scss';
+
+.leftControl {
+    span{
+        @include font-size(22px);
+    }
+}
+.rightControl{
+    span{
+        @include font-size(22px);
+    }
+}

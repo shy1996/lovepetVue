@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+    <link rel='stylesheet' href='/stylesheets/ionicons.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/AdminLTE.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/skins/skin-blue.min.css' />
+    <link rel='stylesheet' href='/lib/jevctormap/jquery-jevctormap-1.2.2.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include header.ejs %>
+
+    <% include menu.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+
+      <div class="row" style="padding-top: 30px;">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="glyphicon glyphicon-home"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Home</span>
+              <span class="info-box-number">3,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 34%"></div>
+              </div>
+              <span class="progress-description">
+                    34% need a home...I
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="glyphicon glyphicon-heart"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Love</span>
+              <span class="info-box-number">41,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 40%"></div>
+              </div>
+              <span class="progress-description">
+                    40% dedication of love...
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="glyphicon glyphicon-camera"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Recode</span>
+              <span class="info-box-number">1,410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 30%"></div>
+              </div>
+              <span class="progress-description">
+                    30% to recode...
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="glyphicon glyphicon-globe"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">World</span>
+              <span class="info-box-number">30,2412</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 60%"></div>
+              </div>
+              <span class="progress-description">
+                    60% in world...
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <% for(var i = 0; i < result.length; i++) { %>
+      <div class="col-md-4">
+        <div class="box box-widget widget-user">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div class="widget-user-header bg-black" style="background: url('../dist/img/photo1.png') center center;">
+          <h3 class="widget-user-username">用户身份卡</h3>
+          <h5 class="widget-user-desc">User Card</h5>
+        </div>
+        <div class="widget-user-image">
+          <img class="img-circle" src="<%= result[i].userHead %>" alt="User head" style="width: 87px;height: 90px;">
+        </div>
+        <div class="box-footer">
+          <div class="row">
+            <div class="col-sm-4 border-right">
+              <div class="description-block">
+                <h5 class="description-header">身份</h5>
+                <span class="description-text">管理员</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 border-right">
+              <div class="description-block">
+                <h5 class="description-header">职位</h5>
+                <span class="description-text">BOSS</span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4">
+              <div class="description-block">
+                <h5 class="description-header">用户名</h5>
+                <span class="description-text" style="text-transform: lowercase"><%= result[i].username %></span>
+              </div>
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+      </div>
+      </div>
+      <% } %>
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Main Footer -->
+    <% include footer.ejs %>
+
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  </body>
+  <script src = "/javascripts/jquery.min.js"></script>
+  <script src = "/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src = "/lib/sparkline/lib/sparkline.js"></script>
+  <script src = "/lib/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src = "/lib/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js"></script>
+  <script src = "/lib/fastclick/lib/fastclick.js"></script>
+  <script src = "/lib/slimscroll/example/ssmaster/jquery.slimscroll.min.js"></script>
+  <script src = "/javascripts/app.min.js"></script>
+</html>

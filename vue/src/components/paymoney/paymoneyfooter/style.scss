@@ -1,0 +1,11 @@
+@import '~@/lib/reset.scss';
+
+.buy{
+	background:#ffe6e8;
+}
+.pay{
+	background:rgb(245, 72, 72);
+	p{
+		@include text-color(#fff);
+	}
+}

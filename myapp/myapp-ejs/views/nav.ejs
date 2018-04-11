@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+    <link rel='stylesheet' href='/stylesheets/ionicons.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/AdminLTE.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/skins/skin-blue.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include header.ejs %>
+
+    <% include menu.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Your Page Content Here -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              导航列表管理
+              <button class="btn btn-sm btn-success" onclick = "addNav()"><span class="glyphicon glyphicon-plus" ></span> 添加</button>
+            </h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th style="width: 10px">#</th>
+                <th>图片名称</th>
+                <th>图片</th>
+                <th>图片链接地址</th>
+                <th>操作</th>
+              </tr>
+              <% for(var i = 0; i < result.length; i++){ %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td>
+                    <%= result[i].navName %>
+                </td>
+                <td>
+                  <img src="<%= result[i].navSrc %>" alt="" style="width: 60px;">
+                </td>
+                <td>
+                    <%= result[i].navLink %>
+                </td>
+                <td>
+                  <button class="btn btn-xs btn-warning" onclick = "updateNav( '<%= result[i].navID %>')">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    编辑
+                  </button>
+                  <button class="btn btn-xs btn-danger" onclick = "deleteNav('<%= result[i].navID %>')">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    删除
+                  </button>
+                </td>
+              </tr>
+              <% } %>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <% include footer.ejs %>
+
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  </body>
+  <script src = "/javascripts/jquery.min.js"></script>
+  <script src = "/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src = "/javascripts/app.min.js"></script>
+  <script>
+    //添加用户
+    function addNav() {
+        window.location.href = "/nav/addNav";
+    }
+
+    //编辑更新用户
+    function updateNav(navID) {
+        window.location.href = "/nav/updateNav?navID="+navID;
+    }
+
+    //删除用户
+    function deleteNav(navID) {
+        window.location.href = "/nav/deleteNav?navID="+navID;
+    }
+  </script>
+</html>

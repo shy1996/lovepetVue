@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+    <link rel='stylesheet' href='/stylesheets/ionicons.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/AdminLTE.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/skins/skin-blue.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include header.ejs %>
+
+    <% include menu.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Your Page Content Here -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              商品列表
+              <button class="btn btn-sm btn-success" onclick = "addMovie(<%= pageCode %>)"><span class="glyphicon glyphicon-plus" ></span> 添加</button>
+              <div class="pull-right">
+                <input type="text" placeholder="请输入查询字段" style="font-size: 12px;height: 30px;">
+                <button class="btn btn-sm btn-success pull-right" onclick = "checkTitle()">
+                  <span class="glyphicon glyphicon-search" ></span> 商品名称查询
+                </button>
+              </div>
+            </h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered" style="table-layout:fixed">
+              <tr>
+                <th style="width: 10px">#</th>
+                <th>商品名称</th>
+                <th>商品ID</th>
+                <th>商品图片</th>
+                <th onclick = "sortPriceBtn()">
+                  价格
+                  <!--<span class="glyphicon glyphicon-upload pull-right" id="ratingMovie"></span>-->
+                  <% if(sort == 1){ %>
+                    <span class="glyphicon glyphicon-upload pull-right" id="ratingMovie"></span>
+                  <% }else if(sort == -1){ %>
+                  <span class="glyphicon glyphicon-download pull-right" id="ratingMovie"></span>
+                  <% }else{ %>
+                  <span class="glyphicon glyphicon-sort pull-right"></span>
+                  <% } %>
+                </th>
+                <th>商品店铺</th>
+                <th>商品地址</th>
+                <th>操作</th>
+              </tr>
+
+           <% for(var i = 0; i < result.length; i++){  %>
+              <tr>
+                <td><%- i+1 %></td>
+                <td>
+                  <%- result[i].title %>
+                </td>
+                <td>
+                    <%- result[i].item_id %>
+                </td>
+                <td>
+                  <img src="<%-  result[i].pic_path  %>" style="width: 60px">
+                </td>
+                <td>
+                    <%-  result[i].priceWap  %>
+                </td>
+                <td>
+                    <%-  result[i].nick  %>
+                </td>
+                <td>
+                    <%-  result[i].location  %>
+                </td>
+                <td>
+                  <button class="btn btn-xs btn-warning" onclick = "updateProduct('<%- result[i].item_id %>',<%= pageCode %>)">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    编辑
+                  </button>
+                  <button class="btn btn-xs btn-danger" onclick = "deleteProduct('<%- result[i].item_id %>')">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    删除
+                  </button>
+                </td>
+              </tr>
+
+                <%  } %>
+
+            </table>
+          </div>
+
+          <!-- /.box-body -->
+          <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-left">
+              <li>总条数为：<%= allNum %>，当前第 <%= pageCode %> 页</li>
+            </ul>
+
+            <ul class="pagination pagination-sm no-margin pull-right">
+              <li class="pull-left"><a href="#" onclick="toPage('prev', <%= totalPages %>)">上一页</a></li>
+              <li class="pull-left">
+                <input type = "number" step = "1" min="1" id="num" onchange="toKindPageNum()" max="<%= totalPages %>" value ="<%= pageCode %>" style="width: 50px;height: 30px;margin: 0 5px;text-align: center;" />
+              </li>
+              <li class="pull-left"><a href="#" onclick="toPage('next', <%= totalPages %>)">下一页</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <% include footer.ejs %>
+
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  </body>
+  <script src = "/javascripts/jquery.min.js"></script>
+  <script src = "/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src = "/javascripts/app.min.js"></script>
+  <script>
+    function updateProduct(item_id,pageCode) {
+        window.location.href = "/list/updateProduct?item_id="+item_id+"&pageCode="+pageCode;
+    }
+
+    //删除商品
+    function deleteProduct(item_id) {
+        window.location.href = "/list/deleteProduct?item_id="+item_id;
+    }
+
+    //跳转添加商品页面
+    function addMovie(pageCode) {
+        window.location.href = "/list/addProduct?pageCode="+pageCode;
+    }
+    
+    //电影根据评分排序按钮
+    function sortPriceBtn() {
+        if($("#ratingMovie").hasClass("glyphicon-upload")){
+            window.location.href = "/list/sortPrice?sortPrice=priceWap&type=-1";
+        }else{
+            window.location.href = "/list/sortPrice?sortPrice=priceWap&type=1";
+        }
+    }
+
+    //分页输入框触发事件
+    function toKindPageNum() {
+        var pageCode = $("#num").val();
+        window.location.href = "/list?limitNum=4&pageCode="+pageCode;
+    }
+
+    function toPage(type, totalPage) {
+        var pageCode = $("#num").val();
+        if(type == "prev"){
+            if(pageCode == 1){
+                pageCode == 1;
+                return;
+            }else{
+                pageCode--;
+            }
+        }else{
+            if(pageCode == totalPage){
+                pageCode == totalPage;
+                return;
+            }else{
+                pageCode++;
+            }
+        }
+
+        window.location.href = "/list?limitNum=4&pageCode="+pageCode;
+
+    }
+    
+
+
+  </script>
+
+</html>

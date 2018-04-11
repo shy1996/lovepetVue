@@ -1,0 +1,71 @@
+@import "./lib/reset.scss";
+
+html, body, .container {
+    @include rect(100%, 100%);
+    @include font-size(12px);
+    @include text-color(#333);
+}
+.container{
+    @include flexbox();
+    @include flex-direction(column);
+    @include background-color(#eee);
+    header{
+        @include rect(100%, 45px);
+        @include background-color(#ff1877);
+        @include text-color(#fff);
+        ul{
+            @include rect(100%, 100%);
+            @include flexbox();
+            li{
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items();
+                @include justify-content();
+            }
+            li.title{
+                @include flex();
+//              @include background-color(#f66);
+                
+            }
+            li.leftControl,li.rightControl{
+                @include rect(50px, 100%);
+//              @include background-color(#00f);
+            }
+        }
+    }
+    .content{
+        @include flex();
+         @include rect(100%, auto);
+         overflow: auto;
+    }
+    footer{
+        @include rect(100%, 50px);
+        @include background-color(#fafafa);
+        border-top: 1px solid #eee;
+        ul{
+            @include rect(100%, 100%);
+            @include flexbox();
+            li{
+                @include flex();
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items();
+                @include justify-content();
+                span.iconfont{
+                    @include font-size(24px);
+                }
+               p{
+                    @include font-size(12px);
+                }
+            }
+            li.router-link-active{
+                @include text-color(#FF2F66);
+            }
+        }
+    }
+}
+image[lazy=loading] {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}

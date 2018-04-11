@@ -1,0 +1,67 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>admin</p>
+                <!-- Status -->
+                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+            </div>
+        </div>
+
+        <!-- search form (Optional) -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu">
+            <li class="header">HEADER</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li class="<%= activeIndex == 0 ? 'active' : ''%>"><a href="/"><i class="fa fa-link"></i> <span>首页</span></a></li>
+            <li class="<%= activeIndex == 1 ? 'active' : ''%>"><a href="/list?limitNum=4&pageCode=1"><i class="fa fa-link"></i> <span>商品列表</span></a></li>
+
+            <li class="treeview <%= activeIndex == 6 ? 'active' : ''%>">
+                <a href="#">
+                    <i class="fa fa-share"></i>
+                    <span>宠物列表管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/petList?petListType=0"><i class="fa fa-circle-o"></i> 犬类列表</a></li>
+                    <li><a href="/petList?petListType=1"><i class="fa fa-circle-o"></i> 猫系列表</a></li>
+                    <li><a href="/petList?petListType=2"><i class="fa fa-circle-o"></i> 其他小宠列表</a></li>
+                </ul>
+            </li>
+
+            <li class="<%= activeIndex == 4 ? 'active' : ''%>"><a href="/news?limitNum=4&pageCode=1"><i class="fa fa-link"></i> <span>新闻社区中心</span></a></li>
+
+            <li class="<%= activeIndex == 2 ? 'active' : ''%>"><a href="/users"><i class="fa fa-link"></i> <span>用户中心</span></a></li>
+
+            <li class="<%= activeIndex == 5 ? 'active' : ''%>"><a href="/banner"><i class="fa fa-link"></i> <span>轮播图管理</span></a></li>
+
+            <li class="<%= activeIndex == 7 ? 'active' : ''%>"><a href="/nav"><i class="fa fa-link"></i> <span>nav导航管理</span></a></li>
+
+
+
+        </ul>
+        <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+</aside>

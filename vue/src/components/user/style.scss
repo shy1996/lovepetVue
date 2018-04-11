@@ -1,0 +1,38 @@
+@import '~@/lib/reset.scss';
+
+.container{
+    .mycontent{
+        @include background-color(#fff);
+        @include text-color(#333);
+        @include rect(100%,auto);
+        @include flexbox();
+        @include flex-direction(column);
+        margin-top:5px;
+        padding: 0 10px;
+        li{
+            @include rect(100%,45px);
+            @include flexbox();
+            @include flex-direction(row);
+            @include justify-content(center);
+            line-height: 45px;
+            border-bottom: 1px solid #eee;
+            span:nth-of-type(1){
+                @include rect(30px,auto);
+            }
+            span:nth-of-type(2){
+                @include flex();
+            }
+            span:nth-of-type(3){
+                @include rect(30px,auto);
+            }
+        }
+    }
+    .loginoutBtn{
+        @include rect(100%, 30px);
+        @include border(0);
+        @include background-color(#736b4d);
+        @include text-color(#fff);
+        @include border-radius(3px);
+        margin: 5px 0;
+    }
+}

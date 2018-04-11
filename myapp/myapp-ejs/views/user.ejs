@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/lib/bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+    <link rel='stylesheet' href='/stylesheets/ionicons.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/AdminLTE.min.css' />
+    <link rel='stylesheet' href='/lib/admin-lte/dist/css/skins/skin-blue.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include header.ejs %>
+
+    <% include menu.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Your Page Content Here -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              用户列表管理
+              <button class="btn btn-sm btn-success" onclick = "addUser()"><span class="glyphicon glyphicon-plus" ></span> 添加</button>
+            </h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th style="width: 10px">#</th>
+                <th>用户ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>用户头像</th>
+                <th>操作</th>
+              </tr>
+              <% for(var i = 0; i < result.length; i++){ %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td>
+                    <%= result[i].userID %>
+                </td>
+                <td>
+                    <%= result[i].username %>
+                </td>
+                <td>
+                    <%= result[i].password %>
+                </td>
+                <td>
+                  <img src="<%= result[i].userHead %>" alt="" style="width: 40px;">
+                </td>
+                <td>
+                  <button class="btn btn-xs btn-warning" onclick = "updateUser( '<%= result[i].userID %>')">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    编辑
+                  </button>
+                  <button class="btn btn-xs btn-danger" onclick = "deleteUser('<%= result[i].userID %>')">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    删除
+                  </button>
+                </td>
+              </tr>
+              <% } %>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <% include footer.ejs %>
+
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  </body>
+  <script src = "/javascripts/jquery.min.js"></script>
+  <script src = "/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src = "/javascripts/app.min.js"></script>
+  <script>
+    //添加用户
+    function addUser() {
+        window.location.href = "/users/addUser";
+    }
+
+    //编辑更新用户
+    function updateUser(userID) {
+        window.location.href = "/users/updateUser?userID="+userID;
+    }
+
+    //删除用户
+    function deleteUser(userID) {
+        console.log(userID);
+        window.location.href = "/users/deleteUser?userID="+userID;
+    }
+  </script>
+</html>

@@ -1,0 +1,92 @@
+@import '~@/lib/reset.scss';
+
+.ordercontainer{
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    .orderaddress{
+        @include rect(100%,90px);
+        @include background-color(#fff);
+        @include flexbox();
+        padding: 5px 10px;
+        @include box-sizing(border-box);
+        @include align-items(center);
+        border-bottom:1px solid #eee;
+        .addressicon{
+            @include rect(15%,100%);
+            @include text-align(center);
+            line-height: 90px;
+        }
+        .addressdetail{
+            @include font-size(12px);
+            p:nth-of-type(1){
+                @include flexbox();
+                @include justify-content(space-between);
+                line-height: 30px;
+            }
+        }
+    }
+    .orderwrap{
+        @include background-color(#fff);
+        margin-top: 5px;
+        padding:5px 10px;
+        @include box-sizing(border-box);
+        .dianpu{
+            @include line-height(32px);
+        }
+        .orderproduct{
+            @include flexbox();
+            border-bottom:1px solid #eee;
+            @include align-items(center);
+            padding-bottom: 10px;
+            .productimg{
+                @include rect(20%,auto);
+                margin-right: 10px;
+                @include border(1px solid rgb(245, 244, 244));
+                img{
+                    @include rect(60px,60px);
+                }
+            }
+            .productdetail{
+                p:nth-of-type(3){
+                    text-align: right;
+                }
+            }
+        }
+        .buynumber{
+            @include flexbox();
+            @include justify-content(space-between);
+            @include flex-direction(column);
+            line-height: 40px;
+            p{
+                @include flexbox();
+                @include justify-content(space-between);
+                border-bottom:1px solid rgb(245, 244, 244);
+                line-height: 40px;
+            }
+           p:nth-of-type(1){
+                span:nth-of-type(2){
+                    @include text-align(center);
+                    i:nth-of-type(1){
+                        @include background-color(#eee);
+                        padding: 3px 5px;
+                    }
+                    i:nth-of-type(2){
+                        margin:0 5px;
+                    }
+                    i:nth-of-type(3){
+                        @include background-color(#eee);
+                        padding: 3px 5px;
+                    }
+                }
+           }
+        }
+        .allmoney{
+            @include line-height(44px);
+            @include text-align(right);
+        }
+    }
+    .orderfooter{
+
+    }
+}

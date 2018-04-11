@@ -1,0 +1,44 @@
+@import '~@/lib/reset.scss';
+
+.cartcontent{
+     .cartdetail{
+        padding: 10px;
+        @include box-sizing();
+        @include background-color(#fff);
+        img{
+            @include rect(100%, auto);
+        }
+        p:nth-of-type(1){
+            @include flexbox();
+            @include justify-content(space-between);
+            @include line-height(20px);
+            height:20px;
+            @include font-size(16px);
+            margin-top: 5px;
+            span:nth-of-type(1){
+                @include text-color(#f00);
+            }
+            span:nth-of-type(2){
+                @include font-size(12px);
+                @include text-color(#000);
+                margin-top: 3px;
+            }
+        }
+     }
+     .carttip{
+         margin-top: 5px;
+         @include background-color(#ffe);
+         padding: 10px;
+         @include box-sizing();
+         @include text-color();
+         color:#8b0401;
+         span{
+             @include text-align(center);
+             @include text-color(#fff);
+             display: block;
+             @include background-color(#f00);
+             padding: 3px 5px;
+             letter-spacing: 6px;
+         }
+     }
+}

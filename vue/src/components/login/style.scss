@@ -1,0 +1,62 @@
+@import '~@/lib/reset.scss';
+
+.logincontent{
+    @include background-color(#fff);
+    @include rect(100%, 100%);
+    .bg_login{
+        @include rect(100%,160px);
+        background: url(./../../assets/loginapp.jpg) no-repeat  center;
+        background-size: 50% !important;
+    }
+    .login_input{
+        @include  font-size(13px);
+        .mint-cell-title{
+            width: 20%;
+            @include font-size(13px);
+        }
+        .mint-cell-value{
+            @include font-size(13px);
+        }
+        .mint-field-other{
+            button{
+                width: 100px;
+                background-color: none;
+                border:1px solid #eee;
+                line-height: 45px;
+            }
+        }
+    }
+    .login_btn{
+        @include background-color(#736b4d);
+        @include rect(90%, 34px);
+        @include text-align(center);
+        @include text-color(#fff);
+        @include border-radius(10px);
+        margin: 0 auto;
+        margin-top: 25px;
+        line-height: 34px;
+    }
+    .otherlogin{
+        @include rect(100%,auto);
+        margin-top: 15px;
+        padding:15px;
+        @include box-sizing(border-box);
+        p{
+            @include rect(100%,auto);
+            @include flexbox();
+            @include justify-content(space-between);
+            border-bottom:1px solid #eee;
+            @include line-height(24px);
+        }
+        div{
+            @include rect(100%,auto);
+            @include flexbox();
+            @include justify-content(space-between);
+            margin-top: 30px;
+            padding: 0 20px;
+            span{
+                @include font-size(30px);
+            }
+        }
+    }
+}

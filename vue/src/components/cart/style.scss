@@ -1,0 +1,54 @@
+@import '~@/lib/reset.scss';
+
+.content{
+    .cartlist{
+        @include rect(100%,auto);
+        .cartli{
+            @include rect(100%, 94px);
+            border-bottom:1px solid #eee;
+            padding:7px 6px;
+            @include box-sizing();
+            @include box-sizing(border-box);
+            @include flexbox();
+            @include background-color(#fff);
+            div:nth-of-type(1){
+                @include flexbox();
+                align-items: center;
+                margin-right:8px;
+                img{
+                    @include rect(60px,60px);
+                }
+            }
+            div:nth-of-type(2){
+                @include rect(80%, auto);
+                @include flexbox();
+                @include flex-direction(column);
+                @include justify-content(center);
+                p:nth-of-type(1){
+                    @include font-size(12px);
+                    @include line-height(18px);
+                }
+                .listPrice{
+                    @include flexbox();
+                    @include justify-content(space-between);
+                    height: 18px;
+                    @include line-height(16px);
+                    span:nth-of-type(1){
+                        @include text-color(#f66);
+                        height: 16px;
+                    }
+                }
+                .gotoShop{
+                    @include text-color(#f20943);
+                    @include text-align(right);
+                    margin-top: 1px;
+                    height:18px;
+                    span{
+                        border: 1px solid #f20943;
+                        @include font-size(12px);
+                    }
+                }
+            }
+        }
+    }
+}

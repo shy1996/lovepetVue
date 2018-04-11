@@ -1,0 +1,35 @@
+@import  '~@/lib/reset.scss';
+
+.content{
+    @include background-color(#fff);
+    .petcatlist{
+        @include rect(100%,auto);
+        @include flexbox();
+        @include flex-wrap(wrap);
+        @include justify-content(space-between);
+        li{
+            @include rect(45%,auto);
+            border: 1px solid #eee;
+            margin: 3px 6px;
+            @include flexbox();
+            @include flex-direction(column);
+            img{
+                @include rect(100%,auto);
+            }
+            p{
+                padding: 2px 5px;
+            }
+            .petName{
+                @include flexbox();
+                @include justify-content(space-between);
+            }
+            .petAge{
+                @include flexbox();
+                @include justify-content(space-between);
+                span:nth-of-type(2){
+                    @include text-color(#fc1477);
+                }
+            }
+        }
+    }
+}

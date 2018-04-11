@@ -1,0 +1,90 @@
+@import '~@/lib/reset.scss';
+
+.mint-swipe{
+    @include rect(100%, 150px);
+    img{
+        @include rect(100%, 100%);
+    }
+    .mint-swipe-indicators{
+        .mint-swipe-indicator{
+            opacity: 0.7 !important;
+        }
+        .is-active{
+             @include background-color(#f00);
+        }
+    }
+}
+.navlist{
+    @include rect(100%, 100px);
+    @include flexbox();
+    @include background-color(#fff);
+    @include align-items();
+    margin-top: 5px;
+    li{
+        @include flex();
+        @include rect(45px, 45px);
+        @include flexbox();
+        @include flex-direction(column);
+        @include align-items();
+        @include justify-content();
+        @include border-radius(50%);
+        margin:0 10px;
+        img{
+            @include rect(100%, 100%);
+            @include border-radius(50%);
+            padding: 0 5px;
+        }
+    }
+}
+.newslist{
+    @include rect(100%, auto);
+    @include background-color(#fff);
+    padding:0 10px;
+    @include box-sizing();
+    margin-top: 5px;
+    .newsauthor{
+        @include rect(100%, 60px);
+        @include flexbox();
+        @include align-items();
+        @include justify-content();
+        .author_left{
+            @include rect(18%, 100%);
+            @include flexbox();
+            @include justify-content();
+            @include align-items();
+            img{
+                @include rect(40px,40px);
+                @include border-radius(50%);
+            }
+        }
+        p{
+            @include flex();
+            @include flexbox();
+            @include flex-direction(column);
+        }
+        .author_right{
+            @include rect(15%, 100%);
+            @include flexbox();
+            @include justify-content();
+            @include align-items();
+            @include text-color(#f66);
+        }
+    }
+    .newstitle{
+        @include font-size(13px);
+        @include text-color(#000);
+    }
+    ul{
+        @include rect(100%, auto);
+        li{
+            @include rect(100% !important, auto);
+            @include flexbox();
+            @include flex-wrap(wrap);
+            img{
+                @include rect(29% !important,auto);
+                max-height:126px;
+                margin:2px 5px;
+            }
+        }
+    }
+}

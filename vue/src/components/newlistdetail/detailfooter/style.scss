@@ -1,0 +1,22 @@
+@import '~@/lib/reset.scss';
+
+.newdetailfooter{
+	@include rect(100%, 36px);
+	@include background-color(#fff);
+	border-top:1px solid #eee;
+	.newfooter{
+		@include rect(100%, 30px);
+		@include flexbox();
+		@include justify-content(space-around);
+		li{
+			@include rect(25%,auto);
+			@include flexbox();
+			@include justify-content(center);
+			@include align-items(center);
+			border-right: 1px solid #eee;
+			span{
+				margin-right: 3px;
+			}
+		}
+	}
+}

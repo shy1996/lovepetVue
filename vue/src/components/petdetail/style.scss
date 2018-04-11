@@ -1,0 +1,30 @@
+@import '~@/lib/reset.scss';
+
+.content{
+    @include background-color(#fff);
+    .petdetail{
+        padding: 10px;
+        margin-bottom: 10px;
+        p:nth-of-type(1){
+            font-weight: 900;
+            @include flexbox();
+            @include justify-content(space-between);
+            span:nth-of-type(2){
+                @include text-color(#f66);
+            }
+        }
+        p:nth-of-type(2){
+            line-height: 26px;
+            @include text-color(#929292);
+        }
+        .goHomeLove{
+            @include flexbox();
+            @include justify-content(flex-end);
+            @include text-color(#f66);
+            line-height: 20px;
+            margin-top: 5px;
+        }
+        
+    }
+    
+}
